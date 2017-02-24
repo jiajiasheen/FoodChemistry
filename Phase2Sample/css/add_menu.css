@@ -1,0 +1,154 @@
+.form_box {
+	margin: 25px;
+	padding: 5px;
+	border: solid 1px black;
+	clear: both;
+	width: 50%;
+	min-width: 400px;
+}
+
+.form_box fieldset {
+	border: none;
+	width: 95%
+}
+
+/*from: http://stackoverflow.com/questions/4009931/css-div-containing-no-height-on-float-set*/
+.form_box:after, .form_box .item_form:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.form_box fieldset > .label {
+	margin: 3px;
+	padding-left: 14px;
+}
+
+.form_box .label {
+	min-width: 110px;
+}
+
+.form_box .label, .form_box #add_item, .form_box #add_menu {
+	clear: both;
+	float: left;
+}
+
+.form_box #delete_menu {
+	float: right;
+}
+
+.form_box #add_meal_pic {
+	height: 20px;
+	padding: 0;
+	line-height: 10px;
+	margin: 2px;
+}
+
+.form_box button:not(.add_ing) {
+	min-width: 125px;
+	margin-top: 5px;
+}
+
+.form_box input[type='text'], .form_box select {
+	float: left;
+	width: 100px;
+}
+
+.form_box h3 {
+	float: left;
+	width: 50%;
+}
+.form_box h4 {
+	clear: both;
+	margin: 10px 0px;
+}
+
+.form_box #other_text {
+	display:none;
+}
+
+.form_box .item_form {
+	border: solid 1px black;
+	margin-top: 3px;
+	padding: 5px;
+}
+
+.form_box .add_button {
+	margin: 5px 0px;
+}
+
+.form_box #add_restaurant {
+	display: none;
+}
+
+.form_box .form_select{
+	width: 100%;
+}
+
+.item_form, .item_form div, .item_form input, .item_form button,
+#add_restaurant div, #add_restaurant input, #add_restaurant select{
+	margin: 3px;
+}
+
+.item_form .allergy img {
+	width: 20px;
+	height: auto;
+	float: left;
+	padding-right: 2px;
+}
+
+.item_form .allergy {
+	float: left;
+	min-width: 110px;
+	min-height: 25px;
+}
+
+.item_form .allergy input {
+	float: left;
+}
+
+.item_form .allergies {	
+	clear: both;
+}
+
+.item_form .ingredient {
+	float: left;
+	margin: 0;
+	width: 100%;
+}
+
+.item_form .ingredient .add_ing {
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	line-height: 10px;
+	clear: both;
+}
+
+/** Smartphone **/
+@media (max-width: 320px) {
+	.form_box {
+		min-width: auto;
+		width: 80%;
+		margin: 10%;
+	}
+	
+	.form_box h3 {
+		width: 100%;
+		clear: both;
+		margin: 2% 0;
+	}
+	
+	.form_box .label {
+		width: 100%;
+	}
+	
+	.form_box select, .form_box input[type='text'] {
+		width: 75%;
+	}
+	
+	#add_menu, #delete_menu {
+		min-width: auto;
+		width: 45%;
+	}
+}

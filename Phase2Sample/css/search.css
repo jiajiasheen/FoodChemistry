@@ -1,0 +1,123 @@
+.search_page h1 {
+	padding-left: 5px;
+}
+
+.filters {
+	width: 200px;
+	height: 100%;
+	border: solid 1px black;
+	float: left;
+	margin: 5px;
+}
+
+.filters .label, .filters .filter_box {
+	clear: both;
+	float: left;
+	
+	margin: 2%;
+}
+
+.filters .filter_box {
+	padding: 0px 10px;
+}
+
+.filters .allergy img {
+	width: 20px;
+	height: auto;
+	float: left;
+	padding-right: 2px;
+}
+
+.filters .allergy {
+	float: left;
+	min-width: 110px;
+}
+
+.filters .allergy input {
+	float: left;
+}
+
+.filters #update_filters {
+	clear: both;
+	float: left;
+	margin: 5px;
+}
+
+.results {
+	height: 100%;
+	float: left;
+	margin: 1%;
+}
+
+.results .searchresult {
+	border: solid 1px black;
+	margin: 1%;
+	padding: 1%;
+}
+
+.results ul {
+	list-style: none;
+	float: left;
+	padding-left: 2%;
+}
+
+.results .item {
+	min-height: 75px;
+	min-width: 250px;
+	width: 50%;
+	border: solid 1px black;
+	margin: 2%;
+}
+
+.results .item:hover, .results .like_button:hover {
+	background-color: #EEE;
+}
+
+.results .name, .results .restaurant{
+	min-width: 150px;
+	float: left;
+	padding: 4px;
+	margin: 0;
+}
+
+.results .likes {
+	min-width: 50px;
+	text-align: right;
+	float: right;
+	padding: 4px;
+	
+	background-image: url(../icons/like.png);
+	background-size: 15px 15px;
+    background-repeat: no-repeat;
+	background-position: 4px 4px;
+}
+
+.results .allergies {
+	clear:both;
+	padding-left: 4px;
+}
+
+.results .allergy{
+	width: 20px;
+	height: auto;
+	float: left;
+	padding-right: 2px;
+}
+
+/** Smartphone **/
+@media (max-width: 320px) {	
+	.filters, .results {
+		width: 80%;
+		margin: 0 10%;
+		padding: 0;
+	}
+	
+	.filters .allergy {
+		height: 30px;
+	}
+	
+	.results .item {
+		width: 100%;
+		margin: 2% 0;
+	}
+}

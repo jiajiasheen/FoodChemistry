@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Benett Axtell">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>MenuWorld Profile</title>
+	</head>
+	<body>
+		<header class='topbar subpage'>
+			<div class='search_bar'>
+				<input type="text" placeholder="Search the world of menus..." />
+				<button id='search'>Go</button>
+			</div>
+			<img id='account_icon' alt='User logo' src='./images/default_user.png'/>
+			<div class='menu_button'> </div>
+		</header>
+		
+		<main class='profile'>
+			<section>
+				<img class='profile_pic' src='./images/default_user.png' />
+				<button id='change_pic'>Upload Picture</button>
+			</section>
+			<section class='profile_form'>
+				<div class='label'>Email:</div>
+				<input type='text' value='example@menuworld.com'></input>
+				<div class='label'>User Type:</div>
+				<div class='static_field'>Restaurant Owner</div>
+				<div class='label'>Current Password:</div>
+				<input type='password'></input>
+				<div class='label'>New Password:</div>
+				<input type='password'></input>
+				<div class='label'>Retype New Password:</div>
+				<input type='password'></input>
+				<button id='submit_profile'>Submit Changes</button>
+			</section>
+		</main>
+		
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/menuworld.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/profile.css" media="screen" />
+	</body>
+</html>
