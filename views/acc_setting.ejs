@@ -1,0 +1,273 @@
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Benett Axtell">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<title>MenuWorld Account Settings</title>
+	</head>
+
+	<body>
+
+					<% if(user_type=='owner') { %>
+						<% include templates/header1.ejs %>
+					<% } else { %>
+						<% include templates/header2.ejs %>
+					<% } %>
+
+		<section class="container">
+			<br>
+					<% if(msg=='saved') { %>
+						<div class='alert alert-success'> <strong> Great, </strong> your changes were saved! </div>
+					<% } else if(msg=='closed') { %>
+						<div class='alert alert-warning'> <strong> Sad to you go, </strong> hope you open again! </div>
+					<% } else if(msg=='open') { %>
+						<div class='alert alert-success'> <strong> Great, </strong> your store is now open </div>
+					<% } else if(msg=='no changes') { %>
+						<div class='alert alert-danger'> <strong> Sorry, </strong> no changes were made. </div>
+					<% } else if(msg=='wrong password'){ %>
+						<div class='alert alert-danger'> <strong> Sorry, </strong> no changes! You entered an invalid password! </div>
+					<% } else { %>
+						<div class='alert alert-danger hiddenDiv'> <strong> Sorry, </strong> no changes were made. </div>
+					<% } %>
+					<!-- Your changes were changed -->
+        	<article class="panel panel-primary"> <!--Start of the panel -->
+
+			        <!-- Start of the header for the panel -->
+			        <div class="panel-heading">
+			           	<h3 class="panel-title">Your account</h3>
+				    	</div>
+	            	<!-- Start of the body for the panel -->
+		           <div class="panel-body">
+	              	<div class="col-md-3 col-lg-3" align="center">
+	            				<!-- <img alt="pic" src='../public/img/default_user.png' class="img-responsive"> -->
+	            				<img alt="pic" src='../public/img/prof_pics/<%= image_id %>.png' width="200px" height="200px"class="img-responsive">
+											<br>
+											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#img_modal" > Change Picture </button>
+	            			</div>
+											<br>
+		                <div class="col-md-9 col-lg-9">
+		                	<table class="table"> <!-- Start of the table for the panel -->
+	                    	<tbody>
+									<!-- Star EJS Loop here -->
+			                  <tr>
+			                    <td>Username:</td>
+			                    <td> <%= username %> </td>
+			                  </tr>
+			                  <tr>
+												<% if(user_type=='owner'){ %>
+												<tr>
+													<td> Storename: </td>
+													<td> <%= storename %></td>
+												</tr>
+
+												<tr>
+													<td> Store Description </td>
+													<td> <%= desc %> </td>
+												</tr>
+												<% } %>
+
+			                    <td>User type: </td>
+			                    <td> <%= user_type %>  </td>
+			                  </tr>
+			                  <tr>
+			                    <td>Email: </td>
+			                    <td> <%= email %> </td>
+			                  </tr>
+			                  <tr>
+			                  	<td> Phone: </td>
+			                    <td> <%= phone %> </td>
+			                  </tr>
+
+												<tr>
+													<td> Bank Information: </td>
+													<td> <%= account %> </td>
+												</tr>
+
+															<% if(user_type=='owner'){ %>
+			                        <tr>
+			                        	<td> Address: </td>
+			                        	<td> <%= address %> </td>
+			                      	</tr>
+
+															<tr>
+																<td> Store Status </td>
+																<% if(open) { %>
+																<td> OPEN  </td>
+																<% } else { %>
+																<td> CLOSED </td>
+																<% } %>
+															</tr>
+
+															<tr>
+																<% if(open) { %>
+																<td>
+																	<form action='/acc_setting' method='post'>
+																		<button type="acc_setting" class="btn btn-danger" name='status_change'  value='close'> Close my store </button>
+																	</form>
+																</td>
+																<% } else { %>
+																<td>
+																	<form action='/acc_setting' method='post'>
+																		<button type="submit" class="btn btn-success" name='status_change' value='open'> Open my store </button>
+																	</form>
+																</td>
+																<% } %>
+																<td></td>
+															</tr>
+															<% } %>
+			                      	<!-- End EJS Loop here -->
+			                      	<tr>
+			                      		<td>
+			                      			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#acc_modal" >Change my information </button>
+			                      		</td>
+																<td>
+																</td>
+			                      	</tr>
+				                </tbody>
+	                		</table>
+	            		</div>
+								</div> <!-- Panel body -->
+      		</article> <!-- Panel -->
+
+      	<article class="modal fade" id="acc_modal">
+  				<div class="modal-dialog" role="document">
+    				<div class="modal-content">
+
+      					<div class="modal-header">
+        					<h4 class="modal-title" id="exampleModalLabel">Change Your Account Info</h4>
+      					</div>
+
+	      				<form id='change_info' action='/acc_setting' method='post'>
+		      				<div class="modal-body">
+
+										<% if(user_type=='owner'){ %>
+ 										 <div class="form-group">
+  										 		<label for="desc"> Store Description: </label>
+  												<input type="text" class="form-control" name="desc" value= <%= desc %> >
+ 											</div>
+ 									 <% } %>
+
+						        <div class="form-group">
+						        	<label for="password" class="control-label">Password:</label>
+						        	<input type="password" class="form-control" name="password" required=true>
+						        </div>
+
+						        <div class="form-group">
+						            <label for="new_password1" class="control-label">New Password:</label>
+						        	<input type="password" class="form-control" id='new_p1' name="new_password1" value="">
+						        </div>
+
+						   		<div class="form-group">
+						            <label for="message-text" class="control-label">New Password Confirm: <span class='match'> Does Not Match </span> </label>
+						        	<input type="password" class="form-control" id='new_p2' name="new_password2" value="">
+						        </div>
+
+						        <div class="form-group">
+						            <label for="email" class="control-label"> Email:</label>
+						        	<input type="text" class="form-control" name="email" value=<%= email %>>
+						        </div>
+
+						   		<div class="form-group">
+						          <label for="phone" class="control-label">Phone:</label>
+						        	<input type="text" class="form-control" name="phone" value=<%= phone %>>
+						       </div>
+
+									 <div class="form-group">
+											 <label for="account" class="control-label">Bank Information:</label>
+											 <input type="text" class="form-control" name="account" value=<%= account %>>
+										</div>
+
+									 <% if(user_type=='owner'){ %>
+										 <div class="form-group">
+ 										 		<label for="address"> Address: </label>
+ 												<input type="text" class="form-control" name="address" value= <%= address %> >
+											</div>
+									 <% } %>
+
+						    </div>
+		      				<div class="modal-footer">
+		        				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        				<button type='submit' id='change_info_button' class="btn btn-primary">Change Info</button>
+		      				</div>
+		      			</form>
+    				</div>
+  				</div>
+				</article>
+
+				<article class="modal fade" id="img_modal">
+  				<div class="modal-dialog" role="document">
+    				<div class="modal-content">
+
+      					<div class="modal-header">
+        					<h4 class="modal-title"> Change Your Profile Photo </h4>
+      					</div>
+
+	      				<!-- <form id='change_img' action='/acc_setting/change_photo' method='post'> -->
+									<% if(user_type == 'customer') { %>
+									<div class="modal-body">
+										<div class='row'>
+											<div class='form-group'>
+												<form action='/change_img' method="post">
+													<input type='image' alt="pic" src='../public/img/prof_pics/cust3.png' name='new_img' value='cust3' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+												</form>
+												<form action='/change_img' method="post">
+													<input type='image' alt="pic" src='../public/img/prof_pics/cust4.png' name='new_img' value='cust4' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+												</form>
+											</div>
+										</div>
+										<div class='row'>
+											<div class='form-group'>
+												<form action='/change_img' method="post">
+													<input type='image' alt="pic" src='../public/img/prof_pics/cust1.png' name='new_img' value='cust1' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+												</form>
+												<form action='/change_img' method="post">
+													<input type='image' alt="pic" src='../public/img/prof_pics/cust2.png' name='new_img' value='cust2' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+												</form>
+											</div>
+										</div>
+									</div>
+									<% } else { %>
+										<div class="modal-body">
+											<div class='row'>
+												<div class='form-group'>
+													<form action='/change_img' method="post">
+														<input type='image' alt="pic" src='../public/img/prof_pics/truck3.png' name='new_img' value='truck3' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+													</form>
+													<form action='/change_img' method="post">
+														<input type='image' alt="pic" src='../public/img/prof_pics/truck4.png' name='new_img' value='truck4' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+													</form>
+												</div>
+											</div>
+											<div class='row'>
+												<div class='form-group'>
+													<form action='/change_img' method="post">
+														<input type='image' alt="pic" src='../public/img/prof_pics/truck1.png' name='new_img' value='truck1' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+													</form>
+													<form action='/change_img' method="post">
+														<input type='image' alt="pic" src='../public/img/prof_pics/truck2.png' name='new_img' value='truck2' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+													</form>
+												</div>
+											</div>
+										</div>
+									<% } %>
+		      				<div class="modal-footer">
+		        				<button type="button" class="btn btn-default" data-dismiss="modal"> Cancel </button>
+		      				</div>
+		      			<!-- </form> -->
+    				</div>
+  				</div>
+				</article>
+
+   	 	</section> <!-- Container -->
+
+
+   		<!-- Modal here -->
+    	<link rel="stylesheet" type="text/css" href="../public/css/menuworld.css" media="screen" />
+			<link rel="stylesheet" type="text/css" href="../public/css/acc_setting.css" media="screen" />
+    	<script type="text/javascript" src='../public/scripts/acc_setting.js'></script>
+</body>

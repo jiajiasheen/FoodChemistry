@@ -1,0 +1,26 @@
+{
+  "name": "Phase3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+  	"test": "echo \"Error: no tests \" && exit 1",
+    "start": "node server.js"
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-session": "^1.15.1",
+    "express-validator": "*",
+    "body-parser": "^1.17.1",
+    "express": "^4.14.0",
+    "mongoose":"~4.9.0",
+    "ejs": "*"
+  },
+   "engines": {
+      "node": "4.4.3"
+  }
+}

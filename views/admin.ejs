@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Benett Axtell">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		</head>
+		<title>MenuWorld Admin Page</title>
+	</head>
+	<body>
+		<header class='topbar subpage'>
+			<div class='menu_button'> </div>
+		</header>
+
+		<a href="/forget"><font size="4"> Log Out </a>
+
+		<% if(msg=='') { %>
+
+		<% } else if(msg=='invalid') { %>
+			<div class='alert alert-danger'> <strong> Sorry, </strong> that was an invalid request.</div>
+		<% } else if(msg=='success') { %>
+			<div class='alert alert-success'> <strong> Success, </strong> the user has been deleted.</div>
+		<% } else { %>
+
+		<% } %>
+		<!-- classes background and confirm will be displayed none and block as an 'alert' -->
+		<div class="container">
+			<h2> List of Users </h2>
+			<div class='table-responsive'>
+				<table class="table table-striped">
+						<thead> <th>#</th> <th> User ID </th> <th> Customer Username </th><th> Action </th> </thead>
+
+						<tbody>
+							<% for(var i = 0; i < customers.length; i++){ %>
+								<tr>
+								<td> <%= i+1 %> </td>
+								<td> <%= customers[i].user_id %> </td>
+								<td> <%= customers[i].username %> </td>
+
+								<td>
+										<form action='/admin' method='post'>
+											<button type="submit" class="btn btn-danger btn-sm" name="user_id" value=<%=customers[i].user_id %>> Remove </button>
+										</form>
+								</td>
+								<tr>
+							<% } %>
+							<!-- {number, username, name, then button} -->
+					</tbody>
+						<thead> <th>#</th> <th> User ID </th> <th> Owner Username </th><th> Action </th> </thead>
+						<tbody>
+							<% for(var i = 0; i < owners.length; i++){ %>
+								<tr>
+								<td> <%= i+1 %> </td>
+								<td> <%= owners[i].user_id %> </td>
+								<td> <%= owners[i].username %> </td>
+
+								<td>
+										<form action='/admin' method='post'>
+											<button type="submit" class="btn btn-danger btn-sm" name="user_id" value=<%=owners[i].user_id %>> Remove </button>
+										</form>
+								</td>
+								<tr>
+							<% } %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		</main>
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="../public/css/menuworld.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="../public/css/admin.css" media="screen" />
+		<!-- JS -->
+		<script type="text/javascript" src="../public/scripts/admin.js"></script>
+	</body>
+</html>

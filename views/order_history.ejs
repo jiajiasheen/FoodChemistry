@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Benett Axtell">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
+		<title>MenuWorld Profile</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<header class='topbar subpage'>
+
+			<!-- <img id='account_icon' alt='User logo' src='../public/img/default_user.png'/> -->
+
+		</header>
+		<% include templates/header2.ejs %>
+
+		<div class='container'>
+			<h2> Your Order History </h2>
+			<table class='table'>
+				<thead>
+					<tr> <th> Order ID </th> <th> Item Name </th> <th> Storename </th><th> Quantity </th><th> Time </th> <th> Item Price </th><th> Status</th>  </tr>
+				</thead>
+				<tbody>
+					<% for(var i = 0; i < orders.length; i++) { %>
+						<tr>
+							<td> <%= orders[i].order_id %> </td>
+							<td> <%= orders[i].item_name %> </td>
+							<td> <%= orders[i].storename %> </td>
+							<td> <%= orders[i].quantity %> </td>
+							<td> <%= orders[i].time %> </td>
+							<td><%= orders[i].price%> </td>
+                            <td><%= orders[i].status%> </td>
+						</tr>
+					<% } %>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/menuworld.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="../public/css/list_view_style.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="../public/css/order_history.css" media="screen" />
+
+		<!-- JS -->
+		<script type="text/javascript" src="../public/scripts/order_history.js"></script>
+
+	</body>
+</html>

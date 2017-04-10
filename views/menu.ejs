@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+		<meta charset="UTF-8">
+		<meta name="author" content="Benett Axtell">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="../public/scripts/jquery-2.1.1.min.js" type="text/javascript"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<title>MenuWorld Menu</title>
+	</head>
+	<body>
+		    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed --><a class="navbar-brand" href="/">Food Chemistry</a> </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li> <a href='/'>Home</a> </li>
+                    <li><a href="/acc_setting"> Account Setting </a> </li>
+                    <li> <a href="/order_history">Order History</a> </li>
+                    <li> <a href="/forget">Log out</a> </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+		<main id='menu_div'></main>
+
+		<div id="map"></div>
+
+<!--list of food trucks-->
+		<div>
+		<ul class='listTruck'>
+			<!--truck1 -->
+			<% for (var i = 0; i < owners.length; i ++){%>
+			<li class='truck1'>
+
+			<div class='container'>
+
+			    <div class='div1'>
+
+		    		<img class='truckImg' src='../public/img/prof_pics/<%= owners[i].image_id %>.png' alt='<%= owners[i].image_id %>' >
+
+						</div>
+		    		<ul class='div2'>
+							<% if(owners[i].open) { %>
+		    				<li><img class='open' src='../public/img/open.png' alt='open'></li>
+							<% } else { %>
+		    				<li><img class='open' src='../public/img/close.png' alt='close'></li>
+							<% } %>
+						<!-- <form action="/menu_item" method="post">
+		    		<li class='rowone'>
+	            	    <button type="submit">Food Truck1</button>
+	                </li>
+	                </form> -->
+	                <form action="/menu_item" method="get">
+		    		<li class='rowone'>
+		    			<!-- <h3>put truck number here</h3>
+		    			<input type="text" name="owner_id"> -->
+		    			<input type="hidden" name="owner_id" value=<%=owners[i].user_id%>>
+		    			<input type="hidden" name="storename" value=<%=owners[i].storename%>>
+	            	    <button type="submit"><%= owners[i].storename %></button>
+	                </li>
+	                </form>
+	                <li>
+	                	<div class='rating'>
+	            	    	<img class='star' src='../public/img/fiveStar.png'>
+	                	</div>
+	                <!-- <li class='price'>rating: <%=owners[i].rating%></li> -->
+	            </ul>
+	            <div class='address'>
+	                <address>
+	                	<p><%= owners[i].address %></p>
+	                	<p><%= owners[i].email %></p>
+	                </address>
+	            </div>
+	            <p class='description'>
+	          	<%= owners[i].desc %>
+	            </p>
+	        </div>
+			</li>
+			<% } %>
+
+
+		<!--truck2 -->
+			<!-- <li class='truck1'>
+			<div class='container'>
+			    <div class='div1'>
+		    		<img class='truckImg' src='../public/img/truck2.jpg' alt='truck2' >
+		        </div>
+		    	<ul class='div2'>
+		    		<li><img class='open' src='../public/img/close.png' alt='close'></li>
+		    		<form action="/menu_item" method="post">
+		    		<li class='rowone'>
+	            	    <button type="submit">Food Truck2</button>
+	                </li>
+	                </form>>
+	                <li>
+	                	<div class='rating'>
+	            	    	<img class='star' src='../public/img/twoStar.png'>
+	                	</div>
+	                <li class='price'>$</li>
+	            </ul>
+	            <div class='address'>
+	                <address>
+	                	<p>
+	                	95 St George St. <br>
+	                	Toronto, ON, M5G 4S1
+	                    </p>
+	                	<p>647-900-1111</p>
+	                </address>
+	            </div>
+	            <p class='description'>
+	          	This is a fast food food turck. Mainly sells chips and burgers. Lots of toppings to choose.
+	            </p>
+	        </div>
+			</li> -->
+
+		<!--truck3 -->
+			<!-- <li class='truck3'>
+			<div class='container'>
+			    <div class='div1'>
+		    		<img class='truckImg' src='../public/img/truck3.jpg' alt='truck3' >
+		        </div>
+		    	<ul class='div2'>
+		    		<li><img class='open' src='../public/img/close.png' alt='close'></li>
+		    		<form action="/menu_item" method="post">
+		    		<li class='rowone'>
+	            	    <button type="submit">Food Truck3</button>
+	                </li>
+	                </form>
+	                <li>
+	                	<div class='rating'>
+	            	    	<img class='star' src='../public/img/threeStar.png'>
+	                	</div>
+	                <li class='price'>$$</li>
+	            </ul>
+	            <div class='address'>
+	                <address>
+	                	<p>
+	                	95 St George St. <br>
+	                	Toronto, ON, M5G 4S1
+	                    </p>
+	                	<p>647-900-1111</p>
+	                </address>
+	            </div>
+	            <p class='description'>
+	          	This is a fast food food turck. Mainly sells chips and burgers. Lots of toppings to choose.
+	            </p>
+	        </div>
+			</li> -->
+
+		<!--truck4 -->
+			<!-- <li class='truck1'>
+			<div class='container'>
+			    <div class='div1'>
+		    		<img class='truckImg' src='../public/img/truck4.jpeg' alt='truck4' >
+		        </div>
+		    	<ul class='div2'>
+		    		<li><img class='open' src='../public/img/close.png' alt='close'></li>
+		    		<form action="/menu_item" method="post">
+		    		<li class='rowone'>
+	            	    <button type="submit">Food Truck4</button>
+	                </li>
+	                </form>
+	                <li>
+	                	<div class='rating'>
+	            	    	<img class='star' src='../public/img/oneStar.png'>
+	                	</div>
+	                <li class='price'>$$$</li>
+	            </ul>
+	            <div class='address'>
+	                <address>
+	                	<p>
+	                	95 St George St. <br>
+	                	Toronto, ON, M5G 4S1
+	                    </p>
+	                	<p>647-900-1111</p>
+	                </address>
+	            </div>
+	            <p class='description'>
+	          	This is a fast food food turck. Mainly sells chips and burgers. Lots of toppings to choose.
+	            </p>
+	        </div>
+			</li> -->
+
+		<!--truck5 -->
+			<!-- <li class='truck1'>
+			<div class='container'>
+			    <div class='div1'>
+		    		<img class='truckImg' src='../public/img/truck5.jpg' alt='truck5' >
+		        </div>
+		    	<ul class='div2'>
+		    		<li><img class='open' src='../public/img/open.png' alt='open'></li>
+		    		<form action="/menu_item" method="post">
+		    		<li class='rowone'>
+	            	    <button type="submit">Food Truck5</button>
+	                </li>
+	                </form>
+	                <li>
+	                	<div class='rating'>
+	            	    	<img class='star' src='../public/img/fourStar.png'>
+	                	</div>
+	                <li class='price'>$$$</li>
+	            </ul>
+	            <div class='address'>
+	                <address>
+	                	<p>
+	                	95 St George St. <br>
+	                	Toronto, ON, M5G 4S1
+	                    </p>
+	                	<p>647-900-1111</p>
+	                </address>
+	            </div>
+	            <p class='description'>
+	          	This is a fast food food turck. Mainly sells chips and burgers. Lots of toppings to choose.
+	            </p>
+	        </div>
+			</li> -->
+
+		<!--truck6 -->
+			<!-- <li class='truck1'>
+			<div class='container'>
+			    <div class='div1'>
+		    		<img class='truckImg' src='../public/img/truck6.jpg' alt='truck6' >
+		        </div>
+		    	<ul class='div2'>
+		    		<li><img class='open' src='../public/img/open.png' alt='open'></li>
+		    		<form action="/menu_item" method="post">
+		    		<li class='rowone'>
+	            	    <button type="submit">Food Truck6</button>
+	                </li>
+	                </form>
+	                <li>
+	                	<div class='rating'>
+	            	    	<img class='star' src='../public/img/fiveStar.png'>
+	                	</div>
+	                <li class='price'>$$$</li>
+	            </ul>
+	            <div class='address'>
+	                <address>
+	                	<p>
+	                	95 St George St. <br>
+	                	Toronto, ON, M5G 4S1
+	                    </p>
+	                	<p>647-900-1111</p>
+	                </address>
+	            </div>
+	            <p class='description'>
+	          	This is a fast food food turck. Mainly sells chips and burgers. Lots of toppings to choose.
+	            </p>
+	        </div>
+			</li>
+
+		</ul>
+		</div> -->
+
+<!-- google map位置fixed -->
+ <script type="text/javascript" >
+// $(window).resize(function(){
+ if($(window).width() >= 640){
+    window.onload = function(){
+            menuFixed('map');
+    }
+
+    function menuFixed(id){
+            var obj = document.getElementById(id);
+            var _getHeight = obj.offsetTop;
+
+            window.onscroll = function(){
+             changePos(id,_getHeight);
+            }
+    }
+
+    function changePos(id,height){
+        var obj = document.getElementById(id);
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if(scrollTop < height){
+            obj.style.position = 'absolute';
+        }else{
+            obj.style.position = 'fixed';
+            obj.style.top=0;
+        }
+    }
+ }
+ else{
+ 	// $("#map").remove();
+ 	var obj = document.getElementById('map');
+ 	obj.style.position = 'absolute';
+
+ }
+ // });
+ </script>
+
+
+
+<!-- google map -->
+ <script>
+	function myMap() {
+    	var locations = [
+      		['Food Truck1', 43.660147, -79.396825, 1],
+      		['Food Truck2', 43.660869, -79.397136, 2],
+      		['Food Truck3', 43.661451, -79.397415 , 3],
+      		['Food Truck4', 43.662382, -79.397737, 4],
+      		['Food Truck5', 43.662755, -79.397898, 5],
+      		['Food Truck6', 43.664408, -79.398574, 6]
+    	];
+
+    	var map = new google.maps.Map(document.getElementById('map'), {
+     	   zoom: 16,
+      	   center: new google.maps.LatLng(43.662382, -79.397737),
+      	   mapTypeId: google.maps.MapTypeId.ROADMAP
+    	});
+
+    	var infowindow = new google.maps.InfoWindow();
+
+    	var marker, i;
+
+    	for (i = 0; i < locations.length; i++) {
+      	    marker = new google.maps.Marker({
+        	position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+	        map: map
+	      });
+
+	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+	          return function() {
+	          infowindow.setContent(locations[i][0]);
+	          infowindow.open(map, marker);
+	        }
+	      })(marker, i));
+	    }
+	}
+ </script>
+
+
+
+
+		<!-- includes -->
+		<script src="https://fb.me/react-15.0.1.js"></script>
+		<script src="https://fb.me/react-dom-15.0.1.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+<!-- 		JS
+		<script src="./menu.js" type="text/javascript"></script> -->
+
+		<!-- Google API -->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRBYAyuOk5-eBbZYpQ2cIkh5LG1dmsNck&callback=myMap"></script>
+
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="../public/css/menuworld.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="../public/css/menu.css" media="screen" />
+	</body>
+</html>

@@ -1,0 +1,7 @@
+.match {
+	display: none;
+	color: red;
+}
+.hiddenDiv{
+	visibility: hidden;
+}

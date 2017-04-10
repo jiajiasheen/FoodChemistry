@@ -1,0 +1,184 @@
+
+.listTruck{
+	list-style-type: none;
+	overflow-x:hidden;
+	margin-left:0;
+	float: left;
+}
+.container {
+	width:70%;
+	height:30%;
+	margin-top:3%;
+
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.navbar-nav {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.div1 img{ /*food truck image*/
+   float: left;
+   height:80%;
+   width:30%;
+}
+
+.div2{
+	list-style-type: none;
+	float: left;
+	width: 30%;
+	height:80%;
+
+}
+.rowone a{/*name of food truck*/
+	width:95%;
+	height:55%;
+	font-size:30px;
+}
+
+.open{
+   min-height: 4em;
+   min-width: 4em;
+   width:5%;
+
+}
+
+.rating{
+	width:40%;
+}
+
+.rating img{
+   height: 100%;
+   width: 100%;
+   overflow: hidden;
+}
+
+.price {
+	font-size: 18px;
+}
+
+
+.address{
+	float: left;
+	height: 80%;
+	width: 30%;
+	font-size: 18px;
+}
+
+.description{
+    clear:left;
+    font-size: 18px;
+}
+
+#map{
+	position: absolute;
+	width: 30%;
+	height: 65%;
+	background:yellow;
+    margin-left: 66%;
+    margin-top: 10%;
+}
+
+/*Tablet*/
+@media only screen and (min-width:640px) and (max-width: 1024px) {
+
+#map{
+	margin-top: 15%;
+
+}
+
+
+
+
+
+
+}
+
+/*for mobile*/
+@media only screen and (max-width: 640px){
+
+#map{
+	float: left;
+	width: 80%;
+	height: 50%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 5%;
+}
+
+.container{
+	margin-right: 10%;
+}
+
+.listTruck{
+  margin-top: 110%;
+}
+
+.container{
+	width:100%;
+/*	clear: left;*/
+}
+
+.div1 img{
+	clear: left;
+	height:80%;
+    width:90%;
+}
+
+.div2{
+	float: left;
+	margin-left: 0;
+	width: 45%;
+}
+
+ul.div2{
+	list-style-type: none;
+	padding: 0;
+}
+
+/*.div2 li{
+	display: inline;
+}*/
+
+.rowone a{/*name of food truck*/
+	width:95%;
+	height:55%;
+	font-size:18px;
+}
+
+.div2 .open{
+	width: 5px;
+	height: 5px;
+	overflow: hidden;
+}
+
+.rating img{
+	width: 75px;
+	height: 12px;
+}
+
+.price{
+	font-size: 12px;
+}
+
+.address{
+	float:left;
+	margin-top: 10px;
+	width:45%;
+	font-size: 15px;
+}
+
+.description{
+	margin-bottom: 50px;
+	font-size: 15px;
+}
+
+
+}

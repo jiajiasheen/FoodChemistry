@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Benett Axtell">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Chemistry</title>
+  <!--  <script src="modernizr.min.js"></script>
+  -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="../public/scripts/jquery-2.1.1.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <!-- login page/main page -->
+    <section class="login" id="login_form">
+
+        <div class="title"> <img src="../public/img/login_image/food%20chemistry.png"> </div>
+        
+        <form action="/users_tool" method="get">
+
+            <div class="input">
+                <input type="text" id="username" name="username" placeholder="  Username" />
+                <input type="text" id="password" name="password" placeholder="  Password" />
+            </div>
+            <div class="button">
+                <div class="inner">
+                    <button type="submit" id="login"  value="Submit"><img src="../public/img/login_image/lets%20eat.png" width="170" height="100"></button>
+                </div>
+            </div>
+        
+        </form>
+        <!-- go to registeration page -->
+        <div class="inner">
+            <button id="toregister" onclick="toregister()"><img src="../public/img/login_image/first%20time.png" width="170" height="100"></button>
+        </div>
+    </section>
+
+    <!-- registeration page -->
+    <section class="login" id="register_form">
+
+        <div class="title"> <img src="../public/img/login_image/food%20chemistry.png"> </div>
+        
+        <form action="/users_tool" method="post">
+        
+            <div class="option">            
+                <select id="usertype" class="usertype" name="user_type" required>
+                    <option disabled selected>&nbsp;&nbsp;User Type...</option>
+                    <option value="owner" selected>Food&nbsp;Truck&nbsp;Owner</option>
+                    <option value="customer" selected>Customer</option>
+                </select>
+            </div>
+
+            <div class="formelement">
+                <div class="regusername">
+                    <input type="text" id="username" name="username" placeholder="  Username:6~8 letter" />
+                </div>
+                <div class="email">
+                    <input type="text" id="email" name="email" placeholder="  U of T Email" />
+                </div>
+                <div class="phone">
+                    <input type="text" id="phone" name="phone" placeholder="  Phone Number" />
+                </div>
+                <div class="password">
+                    <input type="text" id="password" name="password" placeholder="  Password:8~10 letter" />
+                </div>
+                <div class="password2">
+                    <input type="text" id="password2" name="password2" placeholder="  Retype Password" />
+                </div>
+            </div>
+
+            <div class="buttons">
+                <!-- goes back to login/main page -->
+                <div class="registerbutton">
+                    <button id="tologin" onclick="tologin()"><img src="../public/img/login_image/backlog.png" width="160" height="90"></button>
+                </div>
+                <!-- register -->
+                <div class="registerbutton">
+                    <button id="register" type="submit" value="Submit"><img src="../public/img/login_image/register.png" width="160" height="90"> </button>
+                </div>
+            </div>
+        
+        </form>
+    
+    </section>
+
+    <!-- card validation page -->
+    <section class="login" id="card_form">
+        
+        <div class="title2"> <img src="../public/img/login_image/food%20chemistry.png"> </div>
+        
+        <div class="choice">
+            <!-- stay in credit card page -->
+            <div class="payment">
+                <button id="card" onclick="tocard()">Credit</button>
+            </div>
+            <!-- goes to paypal page -->
+            <div class="payment">
+                <button id="paypal" onclick="topaypal()">PayPal</button>
+            </div>
+        </div>
+
+        <div class="cardoption">
+            <select id="cardtype" required>
+                <option disabled selected>&nbsp;&nbsp;Card Type...</option>
+                <option value="master" selected>Master</option>
+                <option value="visa" selected>Visa</option>
+                <option value="american" selected>American&nbsp;Express</option>
+            </select>
+        </div>
+
+        <form name="checkinfo">
+            <div class="cardelement">
+                <div class="cardholder">
+                    <input type="name" id="name" placeholder="  Card Holder Name" /> </div>
+                <div class="account">
+                    <input type="cardnumber" id="number" placeholder="  Account Number" /> </div>
+                <div class="expiration">
+                    <input type="expirdate" id="expiration" placeholder="  Expiration Date:mm/yy" /> </div>
+                <div class="address">
+                    <input type="address" id="address" placeholder="  Address" /> </div>
+                <div class="location">
+                    <input type="text" id="location" placeholder="  City,Province" /> </div>
+                <div class="zipcode">
+                    <input type="zipcode" id="zipcode" placeholder="  ZipCode" /> </div>
+            </div>
+        </form>
+        
+        <div class="finalize">
+            <!-- goes back to register -->
+            <div class="cardbutton">
+                <button id="previous" onclick="toregister()"><img src="../public/img/login_image/previous.png" width="160" height="90"> </button>
+            </div>
+            <!-- goes back to login/main page -->
+            <div class="cardbutton">
+                <button id="tofinish" onclick="toverify()"><img src="../public/img/login_image/finish.png" width="160" height="90"></button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- PayPal page -->
+    <section class="login" id="paypal_form">
+
+        <div class="title2"> <img src="../public/img/login_image/food%20chemistry.png"> </div>
+        
+        <div class="choice">
+            <!-- goes to credit card page -->
+            <div class="payment">
+                <button id="card" onclick="tocard()">Credit</button>
+            </div>
+            <!-- stay in paypal page -->
+            <div class="payment">
+                <button id="paypal" onclick="topaypal()">PayPal</button>
+            </div>
+        </div>
+        
+        <form name="paypal">
+            <div class="paypalelement">
+                <div class="cardholder">
+                    <input type="email" id="paypalemail" placeholder="  Paypal Email" /> </div>
+                <div class="account">
+                    <input type="password" id="paypalpassword" placeholder="  Password" /> </div>
+            </div>
+        </form>
+        
+        <div class="finalize2">
+            <!-- goes back to register -->
+            <div class="paypalbutton">
+                <button id="previous" onclick="toregister()"><img src="../public/img/login_image/previous.png" width="160" height="90"> </button>
+            </div>
+            <!-- goes back to login/main page -->
+            <div class="paypalbutton">
+                <button id="tofinish" onclick="toverify2()"><img src="../public/img/login_image/finish.png" width="160" height="90"></button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- bank account page -->
+    <section class="login" id="bankaccount_form">
+        
+        <div class="title2"> <img src="../public/img/login_image/food%20chemistry.png"> </div>
+        
+        <div class="owneraccount">Bank Account</div>
+        
+        <form name="getaccount">
+            <div class="bankelement">
+                <div class="accountname">
+                    <input type="name" id="accountname" placeholder="  Name" /> </div>
+                <div class="bankaccount">
+                    <input type="accountnumber" id="accountnumber" placeholder="  Account Number" /> </div>
+                <div class="expiration">
+                    <input type="branchnumber" id="branch" placeholder="  Branch Number" /> </div>
+                <div class="accountaddress">
+                    <input type="address" id="accountaddress" placeholder="  Address" /> </div>
+                <div class="accountlocation">
+                    <input type="text" id="accountlocation" placeholder="  City,Province" /> </div>
+                <div class="accountzipcode">
+                    <input type="zipcode" id="accountzipcode" placeholder="  ZipCode" /> </div>
+            </div>
+        </form>
+        
+        <div class="finalize3">
+            <!-- goes back to register -->
+            <div class="bankbutton">
+                <button id="previous" onclick="toregister()"><img src="../public/img/login_image/previous.png" width="160" height="90"> </button>
+            </div>
+            <!-- goes back to login/main page -->
+            <div class="bankbutton">
+                <button id="tofinish" onclick="toverify3()"><img src="../public/img/login_image/finish.png" width="160" height="90"></button>
+            </div>
+        </div>
+
+    </section>
+    <!-- JS -->
+    <script src="../public/scripts/login.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../public/css/menuworld.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../public/css/login.css" media="screen" /> </body>
+
+</html>

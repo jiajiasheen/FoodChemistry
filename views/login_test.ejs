@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Benett Axtell">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<title>Food Chemistry </title>
+	</head>
+
+	<body>
+		<!-- classes background and confirm will be displayed none and block as an 'alert' -->
+
+
+		<div class='container'>
+			<h1> Welcome to TeamChemistry </h1>
+
+      <br>
+        <% if(msg==""){ %>
+        <div class='alert alert-danger hiddenDiv'> <strong> <%= msg %> </strong> </div>
+        <% } else if (msg=='successful'){ %>
+        <div class='alert alert-success'> <strong> Great, welcome to Team Chemistry. </strong> Please log in. </div>
+				<% } else { %>
+        <div class='alert alert-danger'> <strong> <%= msg %> </strong> </div>
+				<% } %>
+<div class='row'>
+  <div class='col-md-8'>
+      <div class='panel panel-info'>
+          <div class='panel-heading'>
+	            <h2> Log in </h2>
+          </div>
+          <div class='panel-body'>
+
+	        <form action='/login_test' method='post'>
+	            <div class="form-group">
+	                <label for="username">Username</label>
+	                <input class="form-control" name='username' placeholder="Username"> </div>
+	            <div class="form-group">
+	                <label for="password">Password</label>
+	                <input type="password" class="form-control" name='password' placeholder="Password"> </div>
+	            <button type="submit" class="btn btn-default" aria-disabled="true"> Log In </button>
+	        </form>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-4'>
+      <div class='panel panel-default'>
+          <div class='panel-heading'>
+	            <h2> Sign up here. </h2>
+          </div>
+          <div class='panel-body'>
+            <strong <p> Order ahead and skip line ups. </p> </strong>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_customer" > Customer Sign Up </button>
+            <br> <br>
+            <strong> <p> Take orders online. </p> </strong>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_owner" > Store Owner Sign Up </button>
+            <br> <br>
+					</div>
+      </div>
+    </div>
+</div>
+
+			<article class="modal fade" id="create_customer">
+			  	<div class="modal-dialog" role="document">
+			    	<div class="modal-content">
+
+						<div class="modal-header">
+			        		<h4 class="modal-title"> Create an account as a Customer </h4>
+			      		</div>
+
+				      	<form id='form_customer' action='/sign_up' method='post'>
+
+					      	<div class="modal-body">
+
+					          	<div class="form-group">
+					                <input class="form-control type_iden" name='user_type' value="customer" readonly="readonly">
+					            </div>
+
+					            <div class="form-group">
+					                <label for="username">Username</label>
+					                <input class="form-control" name='username' placeholder="Username">
+					            </div>
+
+                      <div class="form-group">
+					                <label for="password">Password</label>
+					                <input id='cp1' type="password" class="form-control" name='password' placeholder="Password" required="true">
+					            </div>
+
+                      <div class="form-group">
+					                <label for="password">Confirm your password <span class='match'> (Does Not Match) </span></label>
+					                <input id='cp2' type="password" class="form-control" name='password2' placeholder="Password" required="true">
+					            </div>
+
+                      <div class="form-group">
+					                <label for="email">Email</label>
+					                <input type="email" class="form-control" name='email' placeholder="example@example.com" required="true">
+					            </div>
+					            <div class="form-group">
+					                <label for="phone">Phone</label>
+					                <input type="text" class="form-control" name='phone' placeholder="1231231234" required="true">
+					            </div>
+
+					            <div class="form-group">
+					                <label for="account">Bank Account Information</label>
+					                <input type='text' class="form-control" name='account' placeholder="123456789" required="true">
+					            </div>
+
+                </div>
+
+			  				<div class="modal-footer">
+			    				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			    				<button id='cust_sign_up' type='submit' class="btn btn-primary"> Sign Up </button>
+			  				</div>
+
+			  			</form>
+					</div>
+				</div>
+			</article>
+			<article class="modal fade" id="create_owner">
+			  	<div class="modal-dialog" role="document">
+			    	<div class="modal-content">
+						    <div class="modal-header">
+			        		<h4 class="modal-title"> Create an account as a Store Owner </h4>
+			      		</div>
+
+				      	<form id='form_owner' action='/sign_up' method='post'>
+
+					      	<div class="modal-body">
+
+                    <div class="form-group">
+                        <input class="form-control type_iden" name='user_type' value="owner" readonly="readonly">
+                    </div>
+
+					            <div class="form-group">
+					                <label for="username">Username</label>
+					                <input class="form-control" name='username' placeholder="Username">
+					            </div>
+
+					            <div class="form-group">
+					                <label for="password">Password</label>
+					                <input id='op1' type="password" class="form-control" name='password' placeholder="Password" required="true">
+					            </div>
+
+                      <div class="form-group">
+					                <label for="password">Confirm your password <span class='match'> (Does Not Match) </span> </label>
+					                <input id='op2' type="password" class="form-control" name='password2' placeholder="Password" required="true">
+					            </div>
+
+					            <div class="form-group">
+					                <label for="storename"> Storename</label>
+					                <input type="text" class="form-control" name='storename' placeholder="Storename" required="true">
+					            </div>
+
+                      <div class="form-group">
+					                <label for="desc">A description of your store</label>
+					                <input type='text' class="form-control" name='desc' placeholder="Greatest poutine truck" required="true">
+					            </div>
+
+					            <div class="form-group">
+					                <label for="address">Address</label>
+					                <input type='text' class="form-control" name='address' placeholder="123 Foodtruck ave." required="true">
+					            </div>
+
+                      <div class="form-group">
+					                <label for="email">Email</label>
+					                <input type="email" class="form-control" name='email' placeholder="example@example.com" required="true">
+					            </div>
+					            <div class="form-group">
+					                <label for="phone">Phone</label>
+					                <input type="text" class="form-control" name='phone' placeholder="1231231234" required="true">
+					            </div>
+
+					            <div class="form-group">
+					                <label for="account">Bank Account Information</label>
+					                <input type='text' class="form-control" name='account' placeholder="123456789" required="true">
+					            </div>
+						    </div>
+
+			  				<div class="modal-footer">
+			    				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			    				<button id='owner_sign_up' type='submit' class="btn btn-primary"> Sign Up </button>
+			  				</div>
+
+			  			</form>
+					</div>
+				</div>
+			</article>
+		</div>
+
+
+		<link rel="stylesheet" type="text/css" href="../public/css/login_test.css" media="screen" />
+				<script type="text/javascript" src="../public/scripts/login_test.js"></script>
+
+		<!-- JS -->
+	</body>
+</html>

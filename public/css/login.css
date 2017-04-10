@@ -1,0 +1,1037 @@
+/*from small sized smartphone to bigger sized screen*/
+
+@media screen and (max-width: 427px) {
+    html,
+    body {
+        background-image: url(../img/login_image/back2.jpg);
+        overflow: hidden;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        min-height: 120%;
+        background-repeat: no-repeat;
+    }
+    .title img {
+        position: absolute;
+        margin-left: 13%;
+        width: 70%;
+        top: 10%;
+        float: left;
+    }
+    /*login page + basic setting*/
+    .input {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 20%;
+        padding: 25px 0px;
+    }
+    .login input,
+    .login select {
+        float: left;
+        clear: both;
+        margin: 10px;
+    }
+    .login button {
+        clear: both;
+        float: left;
+    }
+    .login input {
+        width: 80%;
+        margin-left: 6%;
+        margin-right: 4%;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 30px;
+        font-size: 23px;
+        color: #333333;
+    }
+    .login select {
+        width: 80%;
+        margin-left: 6%;
+        margin-right: 4%;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 30px;
+        font-size: 23px;
+    }
+    /*chrome*/
+    ::-webkit-input-placeholder {
+        color: #e6e6e6;
+    }
+    /*firefox 4 */
+    :-moz-placeholder {
+        color: #e6e6e6;
+    }
+    /*firefox 19*/
+    ::-moz-placeholder {
+        color: #e6e6e6;
+    }
+    .login button {
+        margin-left: 5%;
+        background: transparent;
+        border: 0;
+    }
+    .button {
+        position: absolute;
+        top: 45%;
+        width: 91%;
+        text-align: center;
+    }
+    .inner {
+        display: inline-block;
+    }
+    .inner button img {
+        height: 100px;
+        width: 130px;
+    }
+    /*registeration page */
+    #register_form {
+        display: none;
+    }
+    .createid,
+    .formelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 25%;
+        padding: 25px 0px;
+    }
+    .option,
+    .userstype {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 17%;
+        padding: 25px 0px;
+    }
+    .buttons {
+        position: absolute;
+        width: 92%;
+        z-index: 15;
+        top: 68%;
+        margin-right: 8%;
+        text-align: center;
+    }
+    .registerbutton {
+        display: inline-block;
+        margin: 10px;
+    }
+    .registerbutton button img {
+        height: 70px;
+        width: 100px;
+    }
+    /*card validation page*/
+    #card_form {
+        display: none;
+    }
+    .title2 img {
+        position: absolute;
+        margin-left: 13%;
+        width: 70%;
+        top: 10%;
+        float: left;
+    }
+    .choice {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 22%;
+        margin-left: 10%;
+    }
+    .choice button {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        border: 1px solid white;
+    }
+    .choice button:active {
+        background-color: rgba(255, 179, 179, 0.7);
+    }
+    .checkinfo,
+    .cardelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 30%;
+        padding: 25px 0px;
+    }
+    .cardoption,
+    .cardtype {
+        position: absolute;
+        min-width: 200.5px;
+        width: 100%;
+        z-index: 15;
+        top: 22%;
+        padding: 25px 0px;
+    }
+    .payment {
+        display: inline-block;
+    }
+    .payment button {
+        color: white;
+    }
+    .finalize {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 89%;
+        margin-left: 7%;
+        text-align: center;
+    }
+    .cardbutton {
+        display: inline-block;
+    }
+    .cardbutton button img {
+        height: 60px;
+        width: 100px;
+    }
+    /*paypal validation page*/
+    #paypal_form {
+        display: none;
+    }
+    .paypal,
+    .paypalelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 25%;
+        padding: 25px 0px;
+    }
+    .finalize2 {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 47%;
+        margin-left: 8%;
+        text-align: center;
+    }
+    .paypalbutton {
+        display: inline-block;
+    }
+    .paypalbutton button img {
+        height: 70px;
+        width: 100px;
+    }
+    /*bank account page*/
+    #bankaccount_form {
+        display: none;
+    }
+    .title2 img {
+        position: absolute;
+        margin-left: 13%;
+        width: 70%;
+        top: 10%;
+        float: left;
+    }
+    .owneraccount {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        position: absolute;
+        top: 23%;
+        color: white;
+        text-decoration: underline;
+        margin-left: 8%;
+    }
+    .getaccount,
+    .bankelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 25%;
+        padding: 25px 0px;
+    }
+    .finalize3 {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 87%;
+        margin-left: 5%;
+        text-align: center;
+    }
+    .bankbutton {
+        display: inline-block;
+    }
+    .bankbutton button img {
+        height: 60px;
+        width: 100px;
+    }
+}
+
+
+/*from small sized tablets tp medium sized tablets*/
+
+@media screen and (min-width: 428px) {
+    html,
+    body {
+        background-image: url(../img/login_image/back2.jpg);
+        overflow: hidden;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        min-height: 100%;
+    }
+    .title img {
+        position: absolute;
+        margin-left: 15%;
+        width: 70%;
+        top: 10%;
+        float: left;
+    }
+    .input {
+        position: absolute;
+        min-width: 200px;
+        width: 80%;
+        z-index: 15;
+        top: 25%;
+        margin-left: 12%;
+        padding: 25px 0px;
+    }
+    .login input,
+    .login button,
+    .login select {
+        float: left;
+        clear: both;
+        margin: 10px;
+    }
+    .login input {
+        width: 80%;
+        margin-left: 6%;
+        margin-right: 4%;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 30px;
+        font-size: 23px;
+        color: #333333;
+    }
+    .login select {
+        width: 80%;
+        margin-left: 6%;
+        margin-right: 4%;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 30px;
+        font-size: 23px;
+    }
+    ::-webkit-input-placeholder {
+        color: #e6e6e6;
+    }
+    :-moz-placeholder {
+        color: #e6e6e6;
+    }
+    ::-moz-placeholder {
+        color: #e6e6e6;
+    }
+    .login button {
+        margin-left: 10%;
+        background: transparent;
+        border: 0;
+    }
+    .inner {
+        display: inline-block;
+    }
+    .button {
+        position: absolute;
+        top: 53%;
+        width: 91%;
+        text-align: center;
+    }
+    /*registeration page*/
+    #register_form {
+        display: none;
+    }
+    .createid,
+    .formelement {
+        position: absolute;
+        min-width: 200px;
+        width: 80%;
+        z-index: 15;
+        top: 33%;
+        margin-left: 11%;
+        padding: 25px 0px;
+    }
+    .option,
+    .userstype {
+        position: absolute;
+        min-width: 200px;
+        width: 80%;
+        z-index: 15;
+        top: 25%;
+        margin-left: 11%;
+        padding: 25px 0px;
+    }
+    .buttons {
+        position: absolute;
+        width: 85%;
+        z-index: 15;
+        top: 70%;
+        padding: 25px 0px;
+        margin-left: 5%;
+        text-align: center;
+    }
+    .buttons button {
+        color: white;
+    }
+    .registerbutton {
+        display: inline-block;
+    }
+    /*card validation page*/
+    #card_form {
+        display: none;
+    }
+    .title2 {
+        position: absolute;
+        margin-left: 13%;
+        width: 70%;
+        top: 5%;
+        float: left;
+    }
+    .choice {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 16%;
+        margin-left: 8%;
+    }
+    .choice button {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        border: 1px solid white;
+    }
+    .choice button:active {
+        background-color: rgba(255, 179, 179, 0.7);
+    }
+    .checkinfo,
+    .cardelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 33%;
+    }
+    .cardoption,
+    .cardtype {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 20%;
+        padding: 25px 0px;
+    }
+    .payment {
+        display: inline-block;
+    }
+    .payment button {
+        color: white;
+    }
+    .finalize {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 88%;
+        margin-left: 8%;
+        text-align: center;
+    }
+    .cardbutton {
+        display: inline-block;
+    }
+    .cardbutton button img {
+        height: 50px;
+        width: 90px;
+    }
+    /*paypal validation page*/
+    #paypal_form {
+        display: none;
+    }
+    .paypal,
+    .paypalelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 25%;
+        padding: 25px 0px;
+    }
+    .finalize2 {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 47%;
+        margin-left: 8%;
+        text-align: center;
+    }
+    .paypalbutton {
+        display: inline-block;
+    }
+    .paypalbutton button img {
+        height: 70px;
+        width: 100px;
+    }
+    /*bank account page*/
+    #bankaccount_form {
+        display: none;
+    }
+    .title2 img {
+        position: absolute;
+        margin-left: 13%;
+        width: 70%;
+        top: 10%;
+        float: left;
+    }
+    .owneraccount {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        position: absolute;
+        top: 17%;
+        color: white;
+        text-decoration: underline;
+        margin-left: 8%;
+    }
+    .getaccount,
+    .bankelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 20%;
+        padding: 25px 0px;
+    }
+    .finalize3 {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 83%;
+        margin-left: 8%;
+        text-align: center;
+    }
+    .bankbutton {
+        display: inline-block;
+    }
+    .bankbutton button img {
+        height: 60px;
+        width: 100px;
+    }
+}
+
+
+/*big sized tablets to small sized computer*/
+
+@media screen and (min-width: 615px) {
+    html,
+    body {
+        background-image: url(../img/login_image/back2.jpg);
+        background-repeat: no-repeat;
+        overflow: hidden;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        min-height: 100%;
+    }
+    .title img {
+        position: absolute;
+        margin-left: 25%;
+        width: 50%;
+        top: 10%;
+        float: left;
+    }
+    .input {
+        position: absolute;
+        min-width: 200px;
+        width: 45%;
+        z-index: 15;
+        top: 30%;
+        margin-left: 29%;
+        padding: 25px 0px;
+    }
+    .login input,
+    .login button,
+    .login select {
+        float: left;
+        clear: both;
+        margin: 10px;
+    }
+    .login input {
+        width: 80%;
+        margin-left: 6%;
+        margin-right: 4%;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 30px;
+        font-size: 23px;
+        color: #333333;
+    }
+    .login select {
+        width: 80%;
+        margin-left: 6%;
+        margin-right: 4%;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 30px;
+        font-size: 23px;
+    }
+    ::-webkit-input-placeholder {
+        color: #e6e6e6;
+    }
+    :-moz-placeholder {
+        color: #e6e6e6;
+    }
+    ::-moz-placeholder {
+        color: #e6e6e6;
+    }
+    .login button {
+        margin-left: 20%;
+        background: transparent;
+        border: 0;
+    }
+    .inner {
+        display: inline-block;
+    }
+    .button {
+        position: absolute;
+        top: 52%;
+        width: 91%;
+        text-align: center;
+    }
+    #register_form {
+        display: none;
+    }
+    .createid,
+    .formelement {
+        position: absolute;
+        min-width: 200px;
+        width: 45%;
+        z-index: 15;
+        top: 37%;
+        margin-left: 28%;
+        padding: 25px 0px;
+    }
+    .option,
+    .userstype {
+        position: absolute;
+        min-width: 200px;
+        width: 45%;
+        z-index: 15;
+        top: 30%;
+        margin-left: 28%;
+        padding: 25px 0px;
+    }
+    .buttons {
+        position: absolute;
+        min-width: 200px;
+        width: 60%;
+        z-index: 15;
+        top: 73%;
+        margin-left: 16%;
+        margin-right: 24%;
+        padding: 25px 0px;
+        text-align: center;
+    }
+    .buttons button {
+        color: white;
+    }
+    .registerbutton {
+        display: inline-block;
+    }
+    /*card validation page*/
+    #card_form {
+        display: none;
+    }
+    .title2 img {
+        position: absolute;
+        margin-left: 6%;
+        width: 30%;
+        top: 5%;
+        float: left;
+    }
+    .choice {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 20%;
+        margin-left: 3%;
+    }
+    .choice button {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        border: 1px solid white;
+    }
+    .choice button:active {
+        background-color: rgba(255, 179, 179, 0.7);
+    }
+    .checkinfo,
+    .cardelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 35%;
+    }
+    .cardoption,
+    .cardtype {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 23%;
+        padding: 25px 0px;
+    }
+    .payment {
+        display: inline-block;
+    }
+    .payment button {
+        color: white;
+        padding: 0px 50px;
+    }
+    .finalize {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 88%;
+        margin-left: 8%;
+        text-align: center;
+    }
+    .cardbutton {
+        display: inline-block;
+    }
+    .cardbutton button img {
+        height: 50px;
+        width: 80px;
+    }
+    /*paypal validation page*/
+    #paypal_form {
+        display: none;
+    }
+    .paypal,
+    .paypalelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 25%;
+        padding: 25px 0px;
+    }
+    .finalize2 {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 47%;
+        margin-left: 6%;
+        text-align: center;
+    }
+    .paypalbutton {
+        display: inline-block;
+    }
+    .paypalbutton button img {
+        height: 90px;
+        width: 120px;
+    }
+    /*bank account page*/
+    #bankaccount_form {
+        display: none;
+    }
+    .title2 img {
+        position: absolute;
+        margin-left: 13%;
+        width: 65%;
+        top: 10%;
+        float: left;
+    }
+    .owneraccount {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        position: absolute;
+        top: 22%;
+        color: white;
+        text-decoration: underline;
+        margin-left: 8%;
+    }
+    .getaccount,
+    .bankelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 23%;
+        padding: 25px 0px;
+    }
+    .finalize3 {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 85%;
+        margin-left: 8%;
+        text-align: center;
+    }
+    .bankbutton {
+        display: inline-block;
+    }
+    .bankbutton button img {
+        height: 60px;
+        width: 100px;
+    }
+}
+
+
+/*big sized computer*/
+
+@media screen and (min-width: 1280px) {
+    html,
+    body {
+        background-image: url(../img/login_image/back2.jpg);
+        background-repeat: no-repeat;
+        overflow: hidden;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        min-height: 100%;
+    }
+    .title img {
+        position: absolute;
+        margin-left: 25%;
+        width: 50%;
+        top: 10%;
+        float: left;
+    }
+    .input {
+        position: absolute;
+        min-width: 200px;
+        width: 36%;
+        z-index: 15;
+        top: 35%;
+        margin-left: 32%;
+        padding: 25px 0px;
+    }
+    .login input,
+    .login button,
+    .login select {
+        float: left;
+        clear: both;
+        margin: 10px;
+    }
+    .login input {
+        width: 80%;
+        margin-left: 6%;
+        margin-right: 4%;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 30px;
+        font-size: 23px;
+        color: #333333;
+    }
+    .login select {
+        width: 80%;
+        margin-left: 7%;
+        margin-right: 4%;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 30px;
+        font-size: 23px;
+    }
+    ::-webkit-input-placeholder {
+        color: #e6e6e6;
+    }
+    :-moz-placeholder {
+        color: #e6e6e6;
+    }
+    ::-moz-placeholder {
+        color: #e6e6e6;
+    }
+    .login button {
+        margin-left: 25%;
+        background: transparent;
+        border: 0;
+    }
+    .inner {
+        display: inline-block;
+    }
+    .button {
+        position: absolute;
+        top: 55%;
+        width: 91%;
+        text-align: center;
+    }
+    /*registeration page*/
+    #register_form {
+        display: none;
+    }
+    .createid,
+    .formelement {
+        position: absolute;
+        min-width: 200px;
+        width: 36%;
+        z-index: 15;
+        top: 40%;
+        margin-left: 32%;
+        padding: 25px 0px;
+    }
+    .option,
+    .userstype {
+        position: absolute;
+        min-width: 200px;
+        width: 36%;
+        z-index: 15;
+        top: 30%;
+        margin-left: 32%;
+        padding: 25px 0px;
+    }
+    .buttons {
+        position: absolute;
+        min-width: 200px;
+        width: 60%;
+        z-index: 15;
+        top: 70%;
+        margin-left: 16%;
+        margin-right: 24%;
+        padding: 25px 0px;
+        text-align: center;
+    }
+    .buttons button {
+        color: white;
+    }
+    .registerbutton {
+        display: inline-block;
+    }
+    /*card validation page*/
+    #card_form {
+        display: none;
+    }
+    .title2 {
+        position: absolute;
+        width: 40%;
+        top: 5%;
+        float: left;
+        margin-left: 30%;
+    }
+    .choice {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 20%;
+        margin-left: 4%;
+    }
+    .choice button {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        border: 1px solid white;
+    }
+    .choice button:active {
+        background-color: rgba(255, 179, 179, 0.7);
+    }
+    .checkinfo,
+    .cardelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 35%;
+    }
+    .cardoption,
+    .cardtype {
+        position: absolute;
+        min-width: 200px;
+        width: 50%;
+        z-index: 15;
+        top: 23%;
+        margin-left: 2.5%;
+        padding: 25px 0px;
+    }
+    .payment {
+        display: inline-block;
+    }
+    .payment button {
+        color: white;
+        padding: 0px 50px;
+    }
+    .finalize {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 83%;
+        margin-left: 8%;
+        text-align: center;
+    }
+    .cardbutton {
+        display: inline-block;
+    }
+    .cardbutton button img {
+        height: 90px;
+        width: 130px;
+    }
+    /*paypal validation page*/
+    #paypal_form {
+        display: none;
+    }
+    .paypal,
+    .paypalelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 25%;
+        padding: 25px 0px;
+    }
+    .finalize2 {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 47%;
+        margin-left: 6%;
+        text-align: center;
+    }
+    .paypalbutton {
+        display: inline-block;
+    }
+    .paypalbutton button img {
+        height: 90px;
+        width: 140px;
+    }
+    /*bank account page*/
+    #bankaccount_form {
+        display: none;
+    }
+    .title2 img {
+        position: absolute;
+        margin-left: 13%;
+        width: 65%;
+        top: 10%;
+        float: left;
+    }
+    .owneraccount {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        position: absolute;
+        top: 22%;
+        color: white;
+        text-decoration: underline;
+        margin-left: 7%;
+    }
+    .getaccount,
+    .bankelement {
+        position: absolute;
+        min-width: 200px;
+        width: 100%;
+        z-index: 15;
+        top: 23%;
+        padding: 25px 0px;
+    }
+    .finalize3 {
+        position: absolute;
+        width: 75%;
+        z-index: 15;
+        top: 73%;
+        margin-left: 8%;
+        text-align: center;
+    }
+    .bankbutton {
+        display: inline-block;
+    }
+    .bankbutton button img {
+        height: 90px;
+        width: 130px;
+    }
+}

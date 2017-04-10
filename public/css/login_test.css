@@ -1,0 +1,15 @@
+.type_iden{
+  display: none;
+}
+.match{
+  display: none;
+  white-space: nowrap;
+  color: red;
+}
+.hiddenDiv{
+  visibility: hidden;
+}
+h1{
+  text-align: center;
+  
+}

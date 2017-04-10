@@ -1,0 +1,134 @@
+.customer_list{
+	text-align: center;
+	float: left;
+	width: 50%;
+	height: 80%;
+}
+
+.truck_owner_list{
+	text-align: center;
+	float: left;
+	width: 50%;
+	height: 80%;
+}
+
+h1{
+	font-size: 200%;
+}
+
+.truck_element{
+	height: 20px;
+	width: 100%;
+}
+
+.truck{
+	height: 100%;
+	width: 60%;
+	margin-top: 2%;
+	font-size: 140%;
+	float: left;
+}
+.truck_button{
+	margin-top: 2%;
+	height: 100%;
+	width: 20%;
+	float: left;
+}
+
+.customer_element{
+	height: 20px;
+	width: 100%;
+}
+.customer{
+	height: 100%;
+	width: 60%;
+	margin-top: 2%;
+	font-size: 140%;
+	float: left;
+}
+.customer_button{
+	margin-top: 2%;
+	height: 100%;
+	width: 20%;
+	float: left;
+}
+
+
+/* Dynamic confirmation via javascript*/
+.background{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0.3;
+}
+
+/* Dynamically confirm for removal of an menu item*/
+.confirm{
+	background: white;
+	position: fixed;
+	text-align: center;
+	width: 30%;
+	height: 20%;
+	margin-left: 35%;
+	margin-top: 10%;
+}
+
+.confirm_text{
+	width: 100%;
+	height: 30%;
+	font-size: 150%;
+}
+
+.confirm_name{
+	height: 30%;
+	font-size: 150%;
+}
+.confirm_removal{
+	width: 40%;
+	height: 20%;
+	float: left;
+	margin-left: 5%;
+}
+.cancel_removal{
+	width: 40%;
+	height: 20%;
+	float: left;
+	margin-left: 5%;
+}
+
+@media screen and (max-width: 800px) {
+
+	.confirm{
+		width: 60%;
+		height: 30%;
+		margin-left: 20%;
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+	
+	.customer_list{
+		width: 100%;
+	}
+
+	.truck_owner_list{
+		width: 100%;
+	}
+
+	.truck{
+		width: 60%;
+	}
+
+	.customer{
+		width: 60%;
+	}
+
+	.confirm{
+		height: 30%;
+		width: 80%;
+		margin-left: 10%;
+	}
+
+}

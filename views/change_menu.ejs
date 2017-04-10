@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Benett Axtell">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<title>MenuWorld Profile</title>
+	</head>
+
+	<body>
+		<!--<img id='account_icon' alt='User logo' src='../public/img/default_user.png'/> -->
+				<% include templates/header1.ejs %>
+
+		<section class='container'>
+			<h2> Customize Your Menu </h2>
+
+			<% if(msg=='changed') { %>
+				<div class='alert alert-success'> <strong> Great, </strong> your changes were saved! </div>
+			<% } else if(msg=='not created') { %>
+				<div class='alert alert-danger'> <strong> Sorry, </strong> that item creation was not processed </div>
+			<% } else if(msg=='created') { %>
+				<div class='alert alert-success'> <strong> Great, </strong> your item was created </div>
+			<% } else if(msg=='no edit') { %>
+				<div class='alert alert-danger'> <strong> Sorry, </strong> no changes were made. </div>
+			<% } else if(msg=='duplicate item'){ %>
+				<div class='alert alert-danger'> <strong> Sorry, </strong> no changes! You have an item by that name! </div>
+			<% } else if(msg==''){ %>
+
+			<% } else if(msg=='image success'){ %>
+				<div class='alert alert-success'> <strong> Great, </strong> your changes were saved! </div>
+			<% } else { %>
+				<div class='alert alert-success'> <strong> Great, </strong> successfully deleted </div>
+			<% }  %>
+
+			<div class="text-center">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#menu_modal" > Add a new menu item </button>
+			</div>
+
+			<br>
+			<div class='table-responsive'>
+				<table class='table'>
+					<thead>
+						<tr> <th> Photo </th> <th> Item ID </th> <th> Item Name </th> <th> Description </th> <th> Allergens </th> <th> Price </th> <th colspan="3"> Action </th> </tr>
+					</thead>
+					<tbody>
+						<% for(var i = 0; i < items.length; i++) { %>
+							<tr>
+								<td> <img src='../public/img/prof_pics/<%= items[i].image_id %>.png' width="50px" height="50px"> </td>
+								<td> <%= items[i].item_id %> </td>
+								<td> <%= items[i].item_name %> </td>
+								<td> <%= items[i].desc %> </td>
+								<td> <%= items[i].allergens %> </td>
+								<td> <%= items[i].price %> </td>
+								<td> <button type="button" class="btn btn-primary change_img" data-toggle="modal" data-target="#img_modal" > Change Picture </button> </td>
+								<td>	<button type="button" class="btn btn-primary change_info" data-toggle="modal" data-target="#menu_edit" > Change Information </button> </td>
+								<td>  <button type="button" class="btn btn-danger delete_item" data-toggle="modal" data-target="#menu_delete" > Remove  </button> </td>
+							</tr>
+						<% } %>
+					</tbody>
+				</table>
+			<div>
+		</section>
+
+		<article class="modal fade" id="menu_modal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="exampleModalLabel">Add a new menu item</h4>
+					</div>
+
+					<form id='add_menu' action='/add_menu' method='post'>
+						<div class="modal-body">
+						<div class="form-group">
+								<label for="name" class="control-label">New Menu Name:</label>
+								<input type="text" class="form-control" name="item_name" required=true>
+						</div>
+						<div class="form-group">
+								<label for="desc" class="control-label">Please Provide a Description:</label>
+								<input type="text" class="form-control" name="desc" required=true>
+						</div>
+						<div class="form-group">
+								<label for="allergens" class="control-label">Please provide any Allergen Warnings:</label>
+								<input type="text" class="form-control" name="allergens" required=true>
+						</div>
+						<div class="form-group">
+								<label for="price" class="control-label">Please provide the price of this item:</label>
+								<input type="text" class="form-control" name="price" required=true>
+						</div>
+					</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type='submit' class="btn btn-primary"> Add New Item </button>
+						</div>
+				</form>
+			</div>
+		</div>
+		</article>
+
+		<article class="modal fade" id="menu_edit">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title"> Editing a menu item</h4>
+					</div>
+
+					<form id='change_menu' action='/change_menu' method='post'>
+
+						<div class="modal-body">
+
+						<div class="form-group">
+								<label for="item_id" class="control-label">Item ID:</label>
+								<input type="text" class="form-control" name="item_id" readonly="readonly">
+						</div>
+
+						<div class="form-group">
+								<label for="name" class="control-label">Menu Name:</label>
+								<input type="text" class="form-control" name="item_name" required=true>
+						</div>
+
+						<div class="form-group">
+								<label for="desc" class="control-label">Description:</label>
+								<input type="text" class="form-control" name="desc" required=true>
+						</div>
+
+						<div class="form-group">
+								<label for="allergens" class="control-label">Allergens:</label>
+								<input type="text" class="form-control" name="allergens" required=true>
+						</div>
+
+						<div class="form-group">
+								<label for="price" class="control-label">Price:</label>
+								<input type="text" class="form-control" name="price" required=true>
+						</div>
+
+					</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type='submit' class="btn btn-primary"> Edit item </button>
+						</div>
+				</form>
+			</div>
+		</div>
+		</article>
+
+		<article class="modal fade" id="menu_delete">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title"> Are you sure you want to delete this item? </h4>
+					</div>
+
+					<form id='delete_menu' action='/delete_menu' method='post'>
+						<div class="modal-body">
+							<div class="form-group">
+									<label for="item_id" class="control-label">Item ID:</label>
+									<input type="text" class="form-control" name="item_id" readonly="readonly">
+							</div>
+
+							<div class="form-group">
+									<label for="name" class="control-label">Menu Name:</label>
+									<input type="text" class="form-control" name="item_name" readonly="readonly">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type='submit' class="btn btn-danger"> Delete </button>
+						</div>
+				</form>
+			</div>
+		</div>
+		</article>
+
+		<article class="modal fade" id="img_modal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title"> Change Your Item Photo </h4>
+						</div>
+							<div class="modal-body">
+								<div class='row'>
+									<div class='form-group'>
+										<form id='change_menu' action='/change_item_img' method="post">
+											<input class='p_item_id' name='item_id' value=''>
+											<input type='image' alt="pic" src='../public/img/prof_pics/meal1.png' name='new_img' value='meal1' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+										</form>
+
+										<form id='change_menu' action='/change_item_img' method="post">
+											<input class='p_item_id' name='item_id' value=''>
+											<input type='image' alt="pic" src='../public/img/prof_pics/meal2.png' name='new_img' value='meal2' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+										</form>
+									</div>
+								</div>
+								<br>
+								<div class='row'>
+									<div class='form-group'>
+										<form id='change_menu' action='/change_item_img' method="post">
+											<input class='p_item_id' name='item_id' value=''>
+											<input type='image' alt="pic" src='../public/img/prof_pics/meal3.png' name='new_img' value='meal3' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+										</form>
+
+										<form id='change_menu' action='/change_item_img' method="post">
+											<input class='p_item_id' name='item_id' value=''>
+											<input type='image' alt="pic" src='../public/img/prof_pics/meal4.png' name='new_img' value='meal4' width="100x" height="100px"class="img-responsive A col-md-6 col-xs-6">
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal"> Cancel </button>
+							</div>
+
+						<!-- </form> -->
+				</div>
+			</div>
+		</article>
+		</section> <!-- This is container -->
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="../public/css/menuworld.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="../public/css/change_menu.css" media="screen" />
+		<!-- JS -->
+
+		<script type="text/javascript" src="../public/scripts/change_menu.js"></script>
+
+	</body>
+</html>
